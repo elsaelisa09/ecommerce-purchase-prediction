@@ -1,0 +1,28 @@
+experiment_name: catboost_all_features
+seed: 42
+data:
+  path: data/raw/online_shoppers_intention.csv
+  target: Revenue
+  split_path: data/splits/split_manifest.csv
+features:
+  exclude_columns: []
+model:
+  name: catboost
+  params:
+    iterations: 300
+    depth: 4
+    learning_rate: 0.05
+    l2_leaf_reg: 3.0
+    loss_function: Logloss
+    task_type: CPU
+    thread_count: 2
+    verbose: false
+    allow_writing_files: false
+resampling:
+  name: none
+evaluation:
+  threshold: 0.3
+wandb:
+  project: ecommerce-purchase-prediction
+  mode: online
+output_dir: outputs

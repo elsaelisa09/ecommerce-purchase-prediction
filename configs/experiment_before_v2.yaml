@@ -1,0 +1,37 @@
+experiment_name: rf_all_features_smotenc
+
+seed: 42
+
+data:
+  path: data/raw/online_shoppers_intention.csv
+  split_path: data/splits/split_manifest.csv
+  target: Revenue
+
+features:
+  exclude_columns: []
+
+resampling:
+  name: smotenc
+  params:
+    sampling_strategy: 1.0
+    k_neighbors: 5
+
+model:
+  name: random_forest
+  params:
+    n_estimators: 300
+    max_depth: null
+    min_samples_split: 2
+    min_samples_leaf: 1
+    max_features: sqrt
+    class_weight: null
+    n_jobs: -1
+
+evaluation:
+  threshold: 0.5
+
+wandb:
+  project: ecommerce-purchase-prediction
+  mode: online
+
+output_dir: outputs

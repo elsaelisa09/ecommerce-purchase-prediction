@@ -1,0 +1,21 @@
+# Cache Python dan notebook
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Log lokal Weights & Biases
+wandb/
+
+# Secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Abaikan hasil eksperimen lainnya
+outputs/*
+
+# Sertakan pipeline yang digunakan aplikasi
+!outputs/d9n08p0g/
+outputs/d9n08p0g/*
+!outputs/d9n08p0g/pipeline.joblib

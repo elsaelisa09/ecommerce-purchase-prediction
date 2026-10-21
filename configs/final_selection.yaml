@@ -1,0 +1,9 @@
+source_run_path: elsaelisa/ecommerce-purchase-prediction/u1b7ipvz
+
+model_name: xgboost
+feature_variant: all_features
+
+threshold: 0.3
+
+selection_metric: f1
+selection_split: validation

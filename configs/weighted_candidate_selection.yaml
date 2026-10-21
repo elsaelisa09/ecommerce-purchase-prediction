@@ -1,0 +1,15 @@
+source_run_path: elsaelisa/ecommerce-purchase-prediction/d9n08p0g
+model_name: xgboost
+feature_variant: all_features
+threshold: 0.7
+scale_pos_weight: 5.260355029585799
+selection_metric: f1
+selection_split: validation
+tested_thresholds:
+- 0.3
+- 0.4
+- 0.5
+- 0.6
+- 0.7
+- 0.8
+- 0.9

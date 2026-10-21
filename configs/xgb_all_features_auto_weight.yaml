@@ -1,0 +1,58 @@
+data:
+  path: data/raw/online_shoppers_intention.csv
+  target: Revenue
+  split_path: data/splits/split_manifest.csv
+seed: 42
+model:
+  name: xgboost
+  params:
+    device: cpu
+    n_jobs: -1
+    max_depth: 3
+    objective: binary:logistic
+    subsample: 0.8
+    reg_lambda: 1
+    eval_metric: logloss
+    tree_method: hist
+    n_estimators: 300
+    learning_rate: 0.03
+    colsample_bytree: 0.8
+    min_child_weight: 1
+    scale_pos_weight: auto
+wandb:
+  mode: online
+  project: ecommerce-purchase-prediction
+features:
+  exclude_columns: []
+evaluation:
+  threshold: 0.3
+output_dir: outputs
+split_sha256: 1fc695ecad3ebed0714403dabefe3c196d72876c8be0caed28337c965d0fb5b6
+dataset_sha256: b3055ee355f59134d851d32641183cb4a8b45def7124d2f50442a042f358e0d9
+train_sessions: 7406
+experiment_name: xgb_all_features_auto_weight
+feature_columns:
+- Administrative
+- Administrative_Duration
+- Informational
+- Informational_Duration
+- ProductRelated
+- ProductRelated_Duration
+- BounceRates
+- ExitRates
+- PageValues
+- SpecialDay
+- Month
+- OperatingSystems
+- Browser
+- Region
+- TrafficType
+- VisitorType
+- Weekend
+validation_sessions: 2454
+resampling:
+  name: none
+selection:
+  purpose: class_weight_comparison
+  base_config: configs/xgb_tuned_all_features.yaml
+  weight_calculation: training_partition_only
