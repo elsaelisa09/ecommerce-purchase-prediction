@@ -1,0 +1,3 @@
+# Samakan format akhir baris CSV dengan file saat training sebelumnya.
+data/raw/online_shoppers_intention.csv text eol=crlf
+data/splits/split_manifest.csv text eol=crlf
